@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница входа</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a th:href="@{/}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4">АвтоЗаметки</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/}" class="nav-link" aria-current="page">Главная</a></li>
+            <li class="nav-item"><a th:href="@{/login}" class="nav-link active" aria-current="page">Вход</a></li>
+            <li class="nav-item"><a th:href="@{/register}" class="nav-link">Регистрация</a></li>
+        </ul>
+    </header>
+    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="width: 500px; margin: auto;">
+        <p class="text-center text-body h1 fw-bold mb-5 mt-4">Авторизация:</p>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post" style="width: 250px; margin: auto;">
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                    <input type="text" name="username" class="form-control" id="username" required maxlength="20" pattern="[A-Za-z0-9]+">
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите логин, используя только латинские буквы и цифры.
+                    </div>
+
+                    <label class="form-label" style="margin-left: 0px; text-align: center;" for="username">Логин</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 71.2px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                    <input type="password" name="password" class="form-control" id="password" required minlength="3" maxlength="20" pattern="[A-Za-z0-9]+">
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите пароль минимум 3 символов, используя только латинские буквы и цифры.
+                    </div>
+                    <label class="form-label" style="margin-left: 0px; text-align: center"; for="password">Пароль</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 71.2px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-primary btn-lg"
+                        data-mdb-button-initialized="true">Войти</button>
+            </div>
+        </form>
+        <div th:if="${param.error}">
+            <p style="color: red; text-align: center;">Неверный логин или пароль.</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p style="color: red; text-align: center;"> You have been logged out. </p>
+        </div>
+        <div class="text-center">
+            <a th:href="@{/forgotPassword}" class="link-primary">Забыли пароль?</a>
+        </div>
+    </div>
+</div>
+
+<footer class="py-3 my-4" style="position: absolute; bottom: 0; width: 100%;">
+    <p class="text-center text-body-secondary">© 2024 Автомобильные заметки</p>
+</footer>
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    var username = form.querySelector('#username');
+                    var password = form.querySelector('#password');
+
+                    if (!username.value.match(/^[A-Za-z0-9]+$/)) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        username.setCustomValidity('Логин должен содержать только латинские буквы и цифры.');
+                    } else {
+                        username.setCustomValidity('');
+                    }
+
+                    if (!password.value.match(/^[A-Za-z0-9]+$/)) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        password.setCustomValidity('Пароль должен содержать только латинские буквы и цифры.');
+                    } else {
+                        password.setCustomValidity('');
+                    }
+
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            })
+    })()
+</script>
+</body>
+</html>

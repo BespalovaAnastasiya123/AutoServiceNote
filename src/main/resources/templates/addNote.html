@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${addNote}">Добавление зметки</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a th:href="@{/}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4">АвтоЗаметки</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/}" class="nav-link" aria-current="page">Главная</a></li>
+            <li class="nav-item"><a th:href="@{/register}" class="nav-link">Регистрация</a></li>
+            <li class="nav-item"><a th:href="@{/viewNote}" class="nav-link">Заметки</a></li>
+            <li class="nav-item"><a id="logoutLink" href="/login" class="nav-link active">Выйти</a></form></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="width: 600px; margin: auto;">
+            <p class="lead mb-4" style="text-align: center";>Добро пожаловать, <span th:text="${username}"></span>!
+                Чтобы оставить заметку о последнем ТО вашего автомобиля заполните форму ниже:</p>
+            <form class="needs-validation" th:action="@{/addNote}" th:object="${note}" method="post" style="width: 350px; margin: auto;" novalidate>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                        <input type="date" name="date" class="form-control" id="date" required>
+                        <label class="form-label" style="margin-left: 0px" for="date">Дата ТО</label>
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите корректную дату.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                        <select name="carBrand" class="form-control" id="carBrand" required>
+                            <option value="" disabled selected>Выберите марку авто</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Ford">Ford</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Renault">Renault</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <label class="form-label" style="margin-left: 0px" for="carBrand">Марка авто</label>
+                        <div class="invalid-feedback">
+                            Пожалуйста, выберите марку авто.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                        <select name="carModel" class="form-control" id="carModel" required>
+                            <option value="" disabled selected>Выберите модель авто</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                        <label class="form-label" style="margin-left: 0px" for="carModel">Модель авто</label>
+                        <div class="invalid-feedback">
+                            Пожалуйста, выберите модель авто.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                        <select name="maintenanceWork" class="form-control" id="maintenanceWork" required>
+                            <option value="" disabled selected>Выберите вид ТО</option>
+                            <option value="Замена масла">Замена масла</option>
+                            <option value="Замена фильтров">Замена фильтров</option>
+                            <option value="Замена тормозных колодок">Замена тормозных колодок</option>
+                            <option value="Диагностика">Диагностика</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <label class="form-label" style="margin-left: 0px" for="maintenanceWork">Вид ТО</label>
+                        <div class="invalid-feedback">
+                            Пожалуйста, выберите вид ТО.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas text-body fa-user fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init="" class="form-outline flex-fill mb-0" data-mdb-input-initialized="true">
+                        <input type="number" name="maintenanceCost" class="form-control" id="maintenanceCost" required
+                               placeholder="100" min="0" step="0.01" max="10000">
+                        <label class="form-label" style="margin-left: 0px" for="maintenanceCost">Стоимость ТО, в $</label>
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите корректную стоимость ТО.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-primary btn-lg"
+                            data-mdb-button-initialized="true">Добавить</button>
+                </div>
+            </form>
+            <div th:if="${message}">
+                <p th:text="${message}" style="color: red; text-align: center;"></p>
+            </div>
+            <div th:if="${message1}">
+                <p th:text="${message1}" style="color: green; text-align: center;"></p>
+            </div>
+        </div>
+    </div>
+    <footer class="py-3 my-4">
+        <p class="text-center text-body-secondary">© 2024 Автомобильные заметки</p>
+    </footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carBrandSelect = document.getElementById('carBrand');
+        const carModelSelect = document.getElementById('carModel');
+
+        const carModels = {
+            Toyota: ['Corolla', 'Camry', 'RAV4'],
+            Honda: ['Civic', 'Accord', 'CR-V'],
+            Ford: ['Focus', 'Mustang', 'Explorer'],
+            BMW: ['3 Series', '5 Series', 'X5'],
+            Mercedes: ['C-Class', 'E-Class', 'GLA'],
+            Renault: ['Clio', 'Megane', 'Captur']
+        };
+
+        carBrandSelect.addEventListener('change', function () {
+            const selectedBrand = carBrandSelect.value;
+            const models = carModels[selectedBrand] || [];
+
+            carModelSelect.innerHTML = '<option value="" disabled selected>Выберите модель авто</option>';
+            models.forEach(function (model) {
+                const option = document.createElement('option');
+                option.value = model;
+                option.textContent = model;
+                carModelSelect.appendChild(option);
+            });
+        });
+    });
+
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            })
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c7fdc56b-e6c0-4e1b-89b6-5ab0ba90c475" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/config/MvsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/controllers/NoteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/controllers/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/models/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/models/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/repo/NoteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/repo/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/repo/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static.img/error.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static.img/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static.img/success.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addNote.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/editNote.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/registerSuccess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/viewNote.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/viewNoteError.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2oRXZUukxDaexTDUiRbB0f483lz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/IdeaProjects/AutoServiceNote"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\IdeaProjects\AutoServiceNote" />
+      <recent name="C:\Users\Lenovo\IdeaProjects\AutoServiceNote\src\main\resources" />
+      <recent name="C:\Users\Lenovo\IdeaProjects\AutoServiceNote\src\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.project.Application" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7fdc56b-e6c0-4e1b-89b6-5ab0ba90c475" name="Changes" comment="" />
+      <created>1730833420333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730833420333</updated>
+    </task>
+    <servers />
+  </component>
+</project>
